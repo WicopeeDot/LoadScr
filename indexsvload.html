@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- why not ¯\_(ツ)_/¯ -->
+<html>
+	<head>
+		<title>SVLOAD</title>
+		<!-- Compiled and minified CSS -->
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+
+  		<!-- Compiled and minified JavaScript -->
+  		<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+  		<style>
+  			#load {
+    			position: fixed;
+    			top: -1%;
+    		}
+
+				#statusdiv {
+					position: fixed;
+    			top: -0.5%;
+					width: 100%;
+					opacity: 0.5;
+				}
+
+    		body {
+    			-webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+  				background-size: cover;
+    		}
+  		</style>
+	</head>
+	<body style="background-image: url('main.png');">
+		<div class="progress" id="load">
+    		<div class="indeterminate"><p class="z-depth-5">z-depth-5</p></div>
+  		</div>
+			<div class="card-panel" id="statusdiv">
+				<h3 id="status" class="center-align">Retrieving server info...</h3>
+			</div>
+  		<script type="text/javascript">
+				function getRandomInt(min, max)
+				{
+ 		 			return Math.floor(Math.random() * (max - min + 1)) + min;
+				}
+
+				function SetStatusChanged( status ) {
+					document.getElementById("status").innerHTML = status;
+				}
+
+  			var images = {
+  				1: "http://files.wicopee.com/images/magik1.png",
+  				2: "https://steamuserimages-a.akamaihd.net/ugc/92728095771977432/F6A9F5B34AD40BE2299E41DFA3AF2D071BEF623C/",
+					3: "https://cdn.discordapp.com/attachments/172686511085584384/294485573928878082/unknown.png"
+  			};
+
+  			window.setInterval(function() {
+  				document.body.style.backgroundImage = "url('" + images[getRandomInt(1, Object.keys(images).length)] + "')";
+  			}, 10000);
+  		</script>
+	</body>
+</html>
